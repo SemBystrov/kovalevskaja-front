@@ -1,32 +1,57 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-container fluid class="pa-0 ma-0">
+      <v-row class="pa-0 ma-0" justify="center">
+        <template
+          v-if="
+            $vuetify.breakpoint.mdAndUp &&
+              !['Profile', 'Login', 'Register', 'NotFound'].includes(
+                $route.name
+              )
+          "
+        >
+          <v-col cols="4" class="pa-0 ma-0 profile-left elevation-4">
+            <profile></profile>
+          </v-col>
+          <v-col cols="4" class="pa-0 ma-0"> </v-col>
+        </template>
+
+        <v-col cols="12" md="7" lg="6" class="pa-0 ma-0">
+          <v-main>
+            <router-view></router-view>
+          </v-main>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-app>
 </template>
 
+<script>
+import Profile from "./views/Profile";
+export default {
+  name: "App",
+  components: { Profile },
+  data: () => ({
+    //
+  })
+};
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+@import "assets/styles/font";
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+.profile-left {
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent; /* Chrome/Safari/Webkit */
   }
 }
 </style>
