@@ -108,6 +108,9 @@ export default {
           this.loading = false;
         });
     }
+  },
+  metaInfo: {
+    title: "Регистрация"
   }
 };
 </script>

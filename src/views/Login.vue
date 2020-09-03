@@ -69,6 +69,9 @@ export default {
       }
       this.loading = false;
     }
+  },
+  metaInfo: {
+    title: "Авторизация"
   }
 };
 </script>

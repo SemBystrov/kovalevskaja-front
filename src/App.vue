@@ -33,7 +33,14 @@ export default {
   components: { Profile },
   data: () => ({
     //
-  })
+  }),
+  metaInfo: {
+    title: "Приложение",
+    titleTemplate: "%s - Школьный ранец",
+    htmlAttrs: {
+      lang: "ru"
+    }
+  }
 };
 </script>
 

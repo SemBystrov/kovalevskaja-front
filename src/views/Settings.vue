@@ -117,6 +117,9 @@ export default {
   },
   mounted() {
     this.setUserSettings();
+  },
+  metaInfo: {
+    title: "Настройки"
   }
 };
 </script>

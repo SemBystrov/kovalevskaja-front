@@ -9,9 +9,10 @@ import "./registerServiceWorker";
 import App from "./App.vue";
 import "katex/dist/katex.min.css";
 import "./remarkable";
+import VueMeta from "vue-meta";
 
+Vue.use(VueMeta);
 Vue.use(LoadScript);
-// Vue.loadScript("https://cdn.jsdelivr.net/npm/marked/marked.min.js");
 Vue.config.productionTip = false;
 Vue.prototype.$uploadApi = process.env.VUE_APP_API_URL;
 
@@ -25,4 +26,4 @@ new Vue({
 }).$mount("#app");
 
 window.Vue = Vue;
-Vue.loadScript("http://127.0.0.1:8887/applet.min.js");
+Vue.loadScript(process.env.VUE_APP_APPLET_URL);

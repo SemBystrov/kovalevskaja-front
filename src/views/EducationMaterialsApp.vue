@@ -4,7 +4,10 @@
 
 <script>
 export default {
-  name: "Education"
+  name: "Education",
+  metaInfo: {
+    title: "Учебные материалы"
+  }
 };
 </script>
 

@@ -14,7 +14,10 @@
 // @ is an alias to /src
 
 export default {
-  name: "notFound"
+  name: "notFound",
+  metaInfo: {
+    title: "Ошибка"
+  }
 };
 </script>
 

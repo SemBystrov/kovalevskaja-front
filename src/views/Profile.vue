@@ -76,6 +76,9 @@ export default {
       this.$auth.user(user.data);
       this.loadFetchUser = false;
     }
+  },
+  metaInfo: {
+    title: "Профиль"
   }
 };
 </script>
