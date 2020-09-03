@@ -9,8 +9,8 @@ const options = {
   xhtmlOut: true,
   breaks: false,
   typographer: true,
-  quotes: "«»‘’" // ,
-  // imageURL: process.env.VUE_APP_API_URL
+  quotes: "«»‘’",
+  imageURL: "" // process.env.VUE_APP_API_URL
 };
 
 const md = new Remarkable("full", options);
