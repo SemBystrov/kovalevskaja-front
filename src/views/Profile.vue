@@ -8,7 +8,7 @@
         <v-avatar size="130" class="elevation-4">
           <template v-if="$auth.user().avatar">
             <img
-              :src="$uploadApi + $auth.user().avatar.formats.thumbnail.url"
+              :src="$auth.user().avatar.formats.thumbnail.url"
               alt="User's avatar"
             />
           </template>
