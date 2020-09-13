@@ -8,9 +8,10 @@
         {{ practice.header }}
       </h3>
 
-      <template v-for="task in subtype.tasks">
+      <template v-for="(task, index) in subtype.tasks">
         <tutorial-task
           :task="task"
+          :order="index"
           :key="'edu-tutorial-task-id' + task.id"
         ></tutorial-task>
       </template>
