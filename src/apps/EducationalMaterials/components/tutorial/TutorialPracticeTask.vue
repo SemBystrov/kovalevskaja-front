@@ -1,7 +1,8 @@
 <template>
   <div class="practice__task">
     <p>
-      <b>Задача №{{ order || task.id }}.</b> {{ task.condition }}
+      <b>Задача №{{ order || task.id }}.</b>
+      <span v-html="$md.render(task.condition)"></span>
     </p>
 
     <template v-if="showSolution">
