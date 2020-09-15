@@ -48,6 +48,14 @@ export default {
       {
         property: "og:description",
         content: "Личная страница учащегося"
+      },
+      {
+        name: "description",
+        content: "Учебное приложение"
+      },
+      {
+        name: "title",
+        content: "Школьный мир"
       }
     ]
   }
