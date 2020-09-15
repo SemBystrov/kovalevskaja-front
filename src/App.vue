@@ -39,7 +39,17 @@ export default {
     titleTemplate: "%s - Школьный мир",
     htmlAttrs: {
       lang: "ru"
-    }
+    },
+    meta: [
+      {
+        property: "og:title",
+        content: "Профиль - Школьный мир"
+      },
+      {
+        property: "og:description",
+        content: "Личная страница учащегося"
+      }
+    ]
   }
 };
 </script>
