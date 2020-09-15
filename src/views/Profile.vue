@@ -78,7 +78,17 @@ export default {
     }
   },
   metaInfo: {
-    title: "Профиль"
+    title: "Профиль",
+    meta: [
+      {
+        property: "og:title",
+        content: "Профиль - Школьный мир"
+      },
+      {
+        property: "og:description",
+        content: "Личная страница учащегося"
+      }
+    ]
   }
 };
 </script>
