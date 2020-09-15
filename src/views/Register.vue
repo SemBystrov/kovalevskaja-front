@@ -50,6 +50,10 @@
               </v-btn>
               <v-spacer> </v-spacer>
             </v-card-actions>
+            <span class="custom-subheader d-block mt-12"
+              >Есть учётная запись?
+              <router-link to="/login">Войти</router-link></span
+            >
           </v-col>
         </v-row>
       </v-container>

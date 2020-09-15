@@ -7,9 +7,6 @@
           <v-card-title class="app__title">
             Учебник ЕГЭ
           </v-card-title>
-          <v-card-text>
-            Изучать теорию
-          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -22,17 +19,19 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .app__photo {
   width: 100%;
 }
 .app__card {
   padding: 5px;
+  max-width: 200px;
 }
 .app__cards {
   margin-top: -10px;
 }
 .app__title {
-  padding: 2px 16px;
+  padding: 2px 10px;
+  white-space: nowrap;
 }
 </style>

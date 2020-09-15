@@ -1,6 +1,6 @@
 module.exports = {
   pwa: {
-    name: "Школьный рюкзак",
-    themeColor: "#000000"
+    name: "Школьный мир",
+    themeColor: "#5898ff"
   }
 };

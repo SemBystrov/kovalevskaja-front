@@ -163,21 +163,25 @@ export default new Vuex.Store({
   mutations: {},
   actions: {
     async updateUserSettings(ctx, { user }) {
-      let data = new FormData();
-      data.append("files.avatar", user.avatar);
-      data.append(
-        "data",
-        JSON.stringify({
-          firstName: user.firstName,
-          secondName: user.secondName,
-          school: user.school
-        })
-      );
-      axios.put(process.env.VUE_APP_API_URL + "/users/me", data, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      });
+      try {
+        let data = new FormData();
+        data.append("files.avatar", user.avatar);
+        data.append(
+          "data",
+          JSON.stringify({
+            firstName: user.firstName,
+            secondName: user.secondName,
+            school: user.school
+          })
+        );
+        await axios.put(process.env.VUE_APP_API_URL + "/users/me", data, {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        });
+      } catch {
+        throw new Error();
+      }
     }
   },
   modules: {

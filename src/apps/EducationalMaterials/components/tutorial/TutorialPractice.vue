@@ -5,7 +5,7 @@
         v-if="subtype.header !== '---'"
         :key="'edu-tutorial-practice-id' + subtype.id"
       >
-        {{ practice.header }}
+        {{ subtype.header }}
       </h3>
 
       <template v-for="(task, index) in subtype.tasks">
@@ -33,6 +33,9 @@ export default {
       type: Array,
       required: true
     }
+  },
+  created() {
+    console.log(this.practice);
   }
 };
 </script>

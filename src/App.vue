@@ -36,7 +36,7 @@ export default {
   }),
   metaInfo: {
     title: "Приложение",
-    titleTemplate: "%s - Школьный ранец",
+    titleTemplate: "%s - Школьный мир",
     htmlAttrs: {
       lang: "ru"
     }
