@@ -33,9 +33,6 @@ export default {
       type: Array,
       required: true
     }
-  },
-  created() {
-    console.log(this.practice);
   }
 };
 </script>

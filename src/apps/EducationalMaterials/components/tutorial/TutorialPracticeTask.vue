@@ -14,11 +14,9 @@
     </template>
     <template v-else>
       <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn small right dark color="primary" @click="getSolution"
+        <v-btn small right dark color="grey" @click="getSolution"
           >Показать решение</v-btn
         >
-        <v-spacer></v-spacer>
       </v-card-actions>
     </template>
   </div>

@@ -60,10 +60,9 @@ export default {
     async login() {
       try {
         this.loading = true;
-        let who = await this.$auth.login({
+        await this.$auth.login({
           data: this.user
         });
-        console.log(who);
       } catch {
         this.error = true;
       }

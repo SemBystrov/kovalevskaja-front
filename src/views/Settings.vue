@@ -7,22 +7,23 @@
     ></component>
 
     <h1 class="mb-10">Настройки</h1>
-    <div class="settings__user mb-12 pb-10">
+    <div class="settings__user mb-12 pb-10 mb-md-2 pb-md-0">
       <span class="custom-subheader">Пользователь</span>
       <v-row>
         <v-col cols="6">
           <h3 class="mt-2">Имя</h3>
-          <v-text-field v-model="user.firstName"></v-text-field>
+          <v-text-field solo v-model="user.firstName"></v-text-field>
         </v-col>
         <v-col cols="6">
           <h3 class="mt-2">Фамилия</h3>
-          <v-text-field v-model="user.secondName"></v-text-field>
+          <v-text-field solo v-model="user.secondName"></v-text-field>
         </v-col>
       </v-row>
       <v-row>
         <v-col cols="12">
           <h3 class="mt-2">Учебное заведение</h3>
           <v-autocomplete
+            solo
             prepend-icon="mdi-school"
             :items="getSchoolItems()"
             v-model="user.school"
@@ -38,6 +39,7 @@
             placeholder="Загрузите изображение"
             prepend-icon="mdi-camera"
             v-model="user.avatar"
+            solo
           ></v-file-input>
         </v-col>
       </v-row>

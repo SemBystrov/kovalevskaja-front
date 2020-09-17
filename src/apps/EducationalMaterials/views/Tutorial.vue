@@ -4,6 +4,7 @@
       :is="$vuetify.breakpoint.smAndDown ? 'bottom-menu' : 'right-menu'"
       :navigation-list="navigationList"
       @note="openNote"
+      @share="openShare"
     ></component>
 
     <template v-if="tutorialLoading">
@@ -35,6 +36,12 @@
       <v-bottom-sheet scrollable inset v-model="activator.note" :attach="$el">
         <tutorial-note :tutorial-id="tutorial.id"></tutorial-note>
       </v-bottom-sheet>
+
+      <share
+        :title="tutorial.name"
+        :url="tutorialUrl"
+        v-model="activator.share"
+      ></share>
     </template>
   </v-container>
 </template>
@@ -45,6 +52,7 @@ import TutorialPractice from "../components/tutorial/TutorialPractice";
 import TutorialNote from "../components/tutorial/TutorialNote";
 import TutorialIndependetWork from "../components/tutorial/TutorialIndependetWork";
 import TutorialSuccess from "../components/tutorial/TutorialSuccess";
+import Share from "../../../components/Share";
 
 const navigationList = [
   {
@@ -72,6 +80,7 @@ const navigationList = [
 export default {
   name: "Tutorial",
   components: {
+    Share,
     TutorialSuccess,
     TutorialIndependetWork,
     TutorialNote,
@@ -115,7 +124,10 @@ export default {
 
     tutorial: ({ $store }) => {
       return $store.state.edu.tutorial;
-    }
+    },
+
+    tutorialUrl: ({ tutorialSlug }) =>
+      process.env.VUE_APP_URL + "/book/tutorial/" + tutorialSlug
   },
   data() {
     return {
@@ -126,13 +138,17 @@ export default {
       },
       navigationList: navigationList,
       activator: {
-        note: false
+        note: false,
+        share: false
       }
     };
   },
   methods: {
     openNote() {
       this.activator.note = true;
+    },
+    openShare() {
+      this.activator.share = true;
     }
   }
 };

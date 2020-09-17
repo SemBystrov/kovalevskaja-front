@@ -93,7 +93,6 @@ export default {
     register() {
       this.loading = true;
       let username = this.user.email.split("@")[0];
-      console.log(username);
       this.$auth
         .register({
           data: {

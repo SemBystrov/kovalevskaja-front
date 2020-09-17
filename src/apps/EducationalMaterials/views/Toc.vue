@@ -2,6 +2,7 @@
   <v-container class="TOC pt-10" fluid>
     <component
       :is="$vuetify.breakpoint.smAndDown ? 'bottom-menu' : 'right-menu'"
+      @share="openShare"
     ></component>
 
     <template v-if="tocLoading">
@@ -25,6 +26,18 @@
         ></Section>
       </template>
     </template>
+
+    <share
+      title="Учебник ЕГЭ - Школьный мир"
+      :description="
+        `
+Сборник учебных материалов для подготовки к ЕГЭ по профильной математике
+Автор: Александр Александрович Григорьев
+        `
+      "
+      :url="tocUrl"
+      v-model="activator.share"
+    ></share>
   </v-container>
 </template>
 
@@ -32,13 +45,15 @@
 import Section from "../components/toc/TocSection";
 import RightMenu from "../../../components/RightMenu";
 import BottomMenu from "../../../components/BottomMenu";
+import Share from "../../../components/Share";
 
 export default {
   name: "TableOfContent",
   components: {
     RightMenu,
     BottomMenu,
-    Section
+    Section,
+    Share
   },
   created() {
     this.getToc();
@@ -50,7 +65,8 @@ export default {
     },
     tocLoading: ({ status }) => {
       return status.load;
-    }
+    },
+    tocUrl: () => process.env.VUE_APP_URL + "/book/tutorials"
   },
   data() {
     return {
@@ -58,7 +74,10 @@ export default {
         error: false,
         load: true
       },
-      sections: []
+      sections: [],
+      activator: {
+        share: false
+      }
     };
   },
   methods: {
@@ -71,9 +90,11 @@ export default {
     },
 
     getSuccess: function() {
-      this.$store.dispatch({ type: "getAllSuccess" }).then(() => {
-        console.log("getAllSuccess");
-      });
+      this.$store.dispatch({ type: "getAllSuccess" });
+    },
+
+    openShare() {
+      this.activator.share = true;
     }
   }
 };

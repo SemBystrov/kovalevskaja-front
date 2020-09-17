@@ -1,5 +1,5 @@
 <template>
-  <router-view class="mb-12 pb-10"></router-view>
+  <router-view class="mb-12 pb-10 mb-md-0 pb-md-0"></router-view>
 </template>
 
 <script>

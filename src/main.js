@@ -10,6 +10,9 @@ import App from "./App.vue";
 import "katex/dist/katex.min.css";
 import "./remarkable";
 import VueMeta from "vue-meta";
+import VueSocialSharing from "vue-social-sharing";
+
+Vue.use(VueSocialSharing);
 
 Vue.use(VueMeta);
 Vue.use(LoadScript);
