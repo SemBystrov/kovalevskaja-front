@@ -15,7 +15,7 @@
               size="26"
               :key="'success-item-' + i"
               :color="activeSuccess === i ? showSuccess(i).color : 'grey'"
-              class="ml-1 mr-1]"
+              class="ml-1 mr-1"
               @click="changeSuccess(i)"
             >
               {{ showSuccess(i).icon }}

@@ -134,7 +134,8 @@ const EducationalMaterialsStore = {
     },
 
     changeSuccess(state, { tutorialID, rating }) {
-      state.userSuccess[tutorialID] = rating;
+      //state.userSuccess[tutorialID] = rating;
+      Vue.set(state.userSuccess, tutorialID, rating);
     },
 
     setTutorial(state, { tutorial }) {
