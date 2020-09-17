@@ -2,7 +2,7 @@ import Vue from "vue";
 
 // installation remarkable
 
-import { Remarkable } from "remarkable";
+import { Remarkable, utils } from "remarkable";
 
 const options = {
   html: true,
@@ -37,12 +37,23 @@ import "../assets/styles/admonitions.scss";
 md.use(admonitions());
 
 // change image function render
-
-const baseImageRenderer = md.renderer.rules.image;
+const { escapeHtml, replaceEntities, unescapeMd } = utils;
 
 md.renderer.rules.image = function(tokens, idx, options /*, env */) {
   tokens[idx].src = options.imageURL + tokens[idx].src;
-  return baseImageRenderer(tokens, idx, options);
+  const src = ' src="' + escapeHtml(tokens[idx].src) + '"';
+  const title = tokens[idx].title
+    ? ' title="' + escapeHtml(replaceEntities(tokens[idx].title)) + '"'
+    : "";
+  const alt =
+    ' alt="' +
+    (tokens[idx].alt
+      ? escapeHtml(replaceEntities(unescapeMd(tokens[idx].alt)))
+      : "") +
+    '"';
+  const suffix = options.xhtmlOut ? " /" : "";
+  const classImg = ' class="app-image"';
+  return "<img" + src + alt + title + suffix + classImg + ">";
 };
 
 // mounting in vue as global variables

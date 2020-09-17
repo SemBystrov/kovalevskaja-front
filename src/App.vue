@@ -79,4 +79,8 @@ export default {
     background: transparent; /* Chrome/Safari/Webkit */
   }
 }
+
+.app-image {
+  max-width: 100%;
+}
 </style>
