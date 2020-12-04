@@ -28,8 +28,10 @@
       <h2 class="tutorial__practice">Практика</h2>
       <tutorial-practice :practice="tutorial.practice"> </tutorial-practice>
 
-      <h2 class="tutorial__independet-work mt-6">Отработай задание</h2>
-      <tutorial-independet-work></tutorial-independet-work>
+      <!--
+        <h2 class="tutorial__independet-work mt-6">Отработай задание</h2>
+        <tutorial-independet-work></tutorial-independet-work>
+      -->
 
       <tutorial-success :tutorial-id="tutorial.id"></tutorial-success>
 
